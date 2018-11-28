@@ -125,6 +125,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="quanlyuser.resx">
       <DependentUpon>quanlyuser.cs</DependentUpon>
@@ -151,6 +152,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="asset\pill-icon.png" />
     <Content Include="Data\Data.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Data.Context.cs</LastGenOutput>
@@ -165,5 +167,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

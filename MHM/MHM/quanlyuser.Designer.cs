@@ -37,13 +37,14 @@
             this.txtDiachi = new System.Windows.Forms.TextBox();
             this.txtSdt = new System.Windows.Forms.TextBox();
             this.txtSave = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDel = new DevExpress.XtraEditors.SimpleButton();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cbChucvu = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.griduser)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +108,7 @@
             // 
             // txtSave
             // 
-            this.txtSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.txtSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("txtSave.ImageOptions.Image")));
             this.txtSave.Location = new System.Drawing.Point(264, 149);
             this.txtSave.Name = "txtSave";
             this.txtSave.Size = new System.Drawing.Size(85, 37);
@@ -115,14 +116,15 @@
             this.txtSave.Text = "Lưu";
             this.txtSave.Click += new System.EventHandler(this.txtSave_Click);
             // 
-            // simpleButton1
+            // btnDel
             // 
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image1")));
-            this.simpleButton1.Location = new System.Drawing.Point(399, 149);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(85, 37);
-            this.simpleButton1.TabIndex = 8;
-            this.simpleButton1.Text = "Xóa";
+            this.btnDel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnDel.Location = new System.Drawing.Point(399, 149);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(85, 37);
+            this.btnDel.TabIndex = 8;
+            this.btnDel.Text = "Xóa";
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // txtUsername
             // 
@@ -173,18 +175,26 @@
             this.txtPassword.Size = new System.Drawing.Size(137, 21);
             this.txtPassword.TabIndex = 14;
             // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(744, 165);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(13, 21);
+            this.txtId.TabIndex = 15;
+            // 
             // quanlyuser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 465);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbChucvu);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.btnDel);
             this.Controls.Add(this.txtSave);
             this.Controls.Add(this.txtSdt);
             this.Controls.Add(this.txtDiachi);
@@ -214,12 +224,13 @@
         private System.Windows.Forms.TextBox txtDiachi;
         private System.Windows.Forms.TextBox txtSdt;
         private DevExpress.XtraEditors.SimpleButton txtSave;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnDel;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbChucvu;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtId;
     }
 }
