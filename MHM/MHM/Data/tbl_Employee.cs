@@ -15,6 +15,9 @@ namespace MHM.Data
     public partial class tbl_Employee
     {
         public int Id { get; set; }
+        public string Hovaten { get; set; }
+        public string Diachi { get; set; }
+        public Nullable<long> Sodienthoai { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Position { get; set; }

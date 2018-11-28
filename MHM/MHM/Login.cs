@@ -30,14 +30,22 @@ namespace MHM
                     Menuadmin menuadmin = new Menuadmin();
                     menuadmin.Show();
                 }
-                this.Visible = false;
-                Menuemployee mainMenu = new Menuemployee();
-                mainMenu.Show();
+                else
+                {
+                    this.Visible = false;
+                    Menuemployee mainMenu = new Menuemployee();
+                    mainMenu.Show();
+                }
             }
             else
             {
                 MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
