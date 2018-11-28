@@ -38,12 +38,12 @@
             this.txtSdt = new System.Windows.Forms.TextBox();
             this.txtSave = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbChucvu = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.griduser)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +55,7 @@
             this.griduser.Name = "griduser";
             this.griduser.Size = new System.Drawing.Size(757, 273);
             this.griduser.TabIndex = 0;
+            this.griduser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.griduser_CellClick);
             // 
             // label1
             // 
@@ -112,6 +113,7 @@
             this.txtSave.Size = new System.Drawing.Size(85, 37);
             this.txtSave.TabIndex = 7;
             this.txtSave.Text = "Lưu";
+            this.txtSave.Click += new System.EventHandler(this.txtSave_Click);
             // 
             // simpleButton1
             // 
@@ -122,12 +124,12 @@
             this.simpleButton1.TabIndex = 8;
             this.simpleButton1.Text = "Xóa";
             // 
-            // textBox1
+            // txtUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(463, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(137, 21);
-            this.textBox1.TabIndex = 9;
+            this.txtUsername.Location = new System.Drawing.Point(463, 30);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(137, 21);
+            this.txtUsername.TabIndex = 9;
             // 
             // label4
             // 
@@ -147,13 +149,13 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Password:";
             // 
-            // comboBox1
+            // cbChucvu
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(463, 101);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(137, 21);
-            this.comboBox1.TabIndex = 12;
+            this.cbChucvu.FormattingEnabled = true;
+            this.cbChucvu.Location = new System.Drawing.Point(463, 101);
+            this.cbChucvu.Name = "cbChucvu";
+            this.cbChucvu.Size = new System.Drawing.Size(137, 21);
+            this.cbChucvu.TabIndex = 12;
             // 
             // label6
             // 
@@ -164,24 +166,24 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Chức vụ:";
             // 
-            // textBox2
+            // txtPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(463, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(137, 21);
-            this.textBox2.TabIndex = 14;
+            this.txtPassword.Location = new System.Drawing.Point(463, 65);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(137, 21);
+            this.txtPassword.TabIndex = 14;
             // 
             // quanlyuser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 465);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbChucvu);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.txtSave);
             this.Controls.Add(this.txtSdt);
@@ -213,11 +215,11 @@
         private System.Windows.Forms.TextBox txtSdt;
         private DevExpress.XtraEditors.SimpleButton txtSave;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbChucvu;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPassword;
     }
 }
