@@ -23,7 +23,7 @@ namespace MHM
 
         private void quanlyuser_Load(object sender, EventArgs e)
         {
-            //txtId.Visible = false;
+            txtId.Visible = false;
             cbChucvu.Items.Add("GD");
             cbChucvu.Items.Add("NV");
             load();
