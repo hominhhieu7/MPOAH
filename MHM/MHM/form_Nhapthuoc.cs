@@ -27,7 +27,10 @@ namespace MHM
         }
         private void load()
         {
-            gridData.DataSource = db.tbl_Medicine.ToList();
+            txtId.Visible = false;
+            txtId.Text = "0";
+            var data = db.tbl_Medicine.ToList();
+            gridData.DataSource = data;
             gridData.Columns[1].HeaderText = "Mã thuốc";
             gridData.Columns[2].HeaderText = "Tên thuốc";
             gridData.Columns[3].HeaderText = "Số lượng thuốc";
@@ -45,6 +48,60 @@ namespace MHM
         private void groupControl1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txtSave_Click(object sender, EventArgs e)
+        {
+            var add = new tbl_Medicine();
+            int id;
+            id = Convert.ToInt32(txtId.Text);
+            add.Mathuoc = txtMathuoc.Text;
+            add.Ngaynhap = DateTime.Now;
+            add.Soluong = Convert.ToDouble(txtSoluong.Text);
+            add.Tenthuoc = txtTenthuoc.Text;
+            add.Addwho = txtTennv.Text;
+            add.Giaban = Convert.ToDecimal(txtGiaban.Text);
+            add.Gianhap = Convert.ToDecimal(txtGiamua.Text);
+            if (id == 0)
+            {
+                db.tbl_Medicine.Add(add);
+                MessageBox.Show("Đã lưu!!!", "Thông báo", MessageBoxButtons.OK);
+                load();
+            }
+            else
+            {
+                tbl_Medicine update = db.tbl_Medicine.Where(p => p.Id == id).Select(p => p).FirstOrDefault();
+                update.Mathuoc = txtMathuoc.Text;
+                update.Ngaynhap = DateTime.Now;
+                update.Soluong = Convert.ToDouble(txtSoluong.Text);
+                update.Tenthuoc = txtTenthuoc.Text;
+                update.Addwho = txtTennv.Text;
+                update.Giaban = Convert.ToDecimal(txtGiaban.Text);
+                update.Gianhap = Convert.ToDecimal(txtGiamua.Text);
+                db.SaveChanges();
+                MessageBox.Show("Đã lưu!!!", "Thông báo", MessageBoxButtons.OK);
+                load();
+
+            }
+            db.SaveChanges();
+            load();
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (gridData.Rows.Count > 0)
+            {
+                int index = e.RowIndex;
+                DataGridViewRow selectrow = gridData.Rows[index];
+                txtId.Text = selectrow.Cells[0].Value.ToString();
+                txtMathuoc.Text = selectrow.Cells[1].Value.ToString();
+                
+            }
         }
     }
 }
