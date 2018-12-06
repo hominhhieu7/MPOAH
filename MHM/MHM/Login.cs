@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MHM.Data;
-
+using MHM.Model;
 namespace MHM
 {
     public partial class Login : Form
@@ -18,21 +18,22 @@ namespace MHM
         {
             InitializeComponent();
         }
-
         private void btnDangnhap_Click(object sender, EventArgs e)
         {
             var data = db.tbl_Employee.FirstOrDefault(p => p.Username == txtUsername.Text && p.Password == txtPassword.Text);
             if (data != null)
             {
+                Infor.Tennv = data.Hovaten;
+                Infor.Id = data.Id;
                 if (data.Position == "GD")
                 {
-                    this.Visible = false;
+                    Visible = false;
                     Menuadmin menuadmin = new Menuadmin();
                     menuadmin.Show();
                 }
                 else
                 {
-                    this.Visible = false;
+                    Visible = false;
                     Menuemployee mainMenu = new Menuemployee();
                     mainMenu.Show();
                 }

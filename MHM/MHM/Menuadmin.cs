@@ -60,5 +60,10 @@ namespace MHM
         {
             
         }
+
+        private void barBtntonthuoc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }

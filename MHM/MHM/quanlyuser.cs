@@ -31,6 +31,13 @@ namespace MHM
         private void load()
         {
             griduser.DataSource = db.tbl_Employee.ToList();
+            griduser.Columns[0].HeaderText = "ID";
+            griduser.Columns[1].HeaderText = "Họ và tên";
+            griduser.Columns[2].HeaderText = "Địa chỉ";
+            griduser.Columns[3].HeaderText = "Số điện thoại";
+            griduser.Columns[4].HeaderText = "User name";
+            griduser.Columns[5].HeaderText = "Password";
+            griduser.Columns[6].HeaderText = "Chức vụ";
         }
         private void txtSave_Click(object sender, EventArgs e)
         {
@@ -59,6 +66,7 @@ namespace MHM
                     employee.Diachi = txtDiachi.Text;
                     employee.Position = cbChucvu.SelectedItem.ToString();
                     db.SaveChanges();
+                    MessageBox.Show("Đã lưu!!!", "Thông báo", MessageBoxButtons.OK);
                     load();
                 
             }
@@ -99,6 +107,17 @@ namespace MHM
             db.tbl_Employee.Remove(data);
             db.SaveChanges();
             load();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtId.Text = "0";
+            txtHoten.Text = "";
+            txtDiachi.Text = "";
+            txtSdt.Text = "";
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+            cbChucvu.SelectedItem = "";
         }
     }
 }

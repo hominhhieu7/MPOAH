@@ -23,9 +23,23 @@
           <Property Name="Password" Type="varchar" MaxLength="20" />
           <Property Name="Position" Type="varchar" MaxLength="2" />
         </EntityType>
+        <EntityType Name="tbl_Medicine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mathuoc" Type="varchar" MaxLength="50" />
+          <Property Name="Tenthuoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="Soluong" Type="float" />
+          <Property Name="Ngaynhap" Type="datetime" />
+          <Property Name="Gianhap" Type="money" />
+          <Property Name="Giaban" Type="money" />
+          <Property Name="Addwho" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityContainer Name="QLHTModelStoreContainer">
           <EntitySet Name="tbl_Customer" EntityType="Self.tbl_Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Medicine" EntityType="Self.tbl_Medicine" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -34,6 +48,7 @@
         <EntityContainer Name="QLHTEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_Customer" EntityType="QLHTModel.tbl_Customer" />
           <EntitySet Name="tbl_Employee" EntityType="QLHTModel.tbl_Employee" />
+          <EntitySet Name="tbl_Medicine" EntityType="QLHTModel.tbl_Medicine" />
         </EntityContainer>
         <EntityType Name="tbl_Customer">
           <Key>
@@ -52,6 +67,19 @@
           <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Position" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_Medicine">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mathuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tenthuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Soluong" Type="Double" />
+          <Property Name="Ngaynhap" Type="DateTime" Precision="3" />
+          <Property Name="Gianhap" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Giaban" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Addwho" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -75,6 +103,20 @@
                 <ScalarProperty Name="Sodienthoai" ColumnName="Sodienthoai" />
                 <ScalarProperty Name="Diachi" ColumnName="Diachi" />
                 <ScalarProperty Name="Hovaten" ColumnName="Hovaten" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Medicine">
+            <EntityTypeMapping TypeName="QLHTModel.tbl_Medicine">
+              <MappingFragment StoreEntitySet="tbl_Medicine">
+                <ScalarProperty Name="Addwho" ColumnName="Addwho" />
+                <ScalarProperty Name="Giaban" ColumnName="Giaban" />
+                <ScalarProperty Name="Gianhap" ColumnName="Gianhap" />
+                <ScalarProperty Name="Ngaynhap" ColumnName="Ngaynhap" />
+                <ScalarProperty Name="Soluong" ColumnName="Soluong" />
+                <ScalarProperty Name="Tenthuoc" ColumnName="Tenthuoc" />
+                <ScalarProperty Name="Mathuoc" ColumnName="Mathuoc" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
