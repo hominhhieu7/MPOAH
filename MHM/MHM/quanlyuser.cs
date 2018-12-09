@@ -76,37 +76,56 @@ namespace MHM
 
         private void griduser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(griduser.Rows.Count > 0)
+            try
             {
-                int index = e.RowIndex;
-                DataGridViewRow selectrow = griduser.Rows[index];
-                txtId.Text = selectrow.Cells[0].Value.ToString();
-                txtHoten.Text = selectrow.Cells[1].Value.ToString();
-                txtDiachi.Text = selectrow.Cells[2].Value.ToString();
-                txtSdt.Text = selectrow.Cells[3].Value.ToString();
-                txtUsername.Text = selectrow.Cells[4].Value.ToString();
-                txtPassword.Text = selectrow.Cells[5].Value.ToString();
-                cbChucvu.SelectedItem = selectrow.Cells[6].Value.ToString();
-                //foreach(DataGridViewRow row in griduser.SelectedRows)
-                //{
-                //    txtHoten.Text = row.Cells[1].Value.ToString();
-                //    txtDiachi.Text = row.Cells[2].Value.ToString();
-                //    txtSdt.Text = row.Cells[3].Value.ToString();
-                //    txtUsername.Text = row.Cells[4].Value.ToString();
-                //    txtPassword.Text = row.Cells[5].Value.ToString();
-                //    cbChucvu.SelectedItem = row.Cells[6].Value.ToString();
-                //}
+                if (griduser.Rows.Count > 0)
+                {
+                    int index = e.RowIndex;
+                    DataGridViewRow selectrow = griduser.Rows[index];
+                    txtId.Text = selectrow.Cells[0].Value.ToString();
+                    txtHoten.Text = selectrow.Cells[1].Value.ToString();
+                    txtDiachi.Text = selectrow.Cells[2].Value.ToString();
+                    txtSdt.Text = selectrow.Cells[3].Value.ToString();
+                    txtUsername.Text = selectrow.Cells[4].Value.ToString();
+                    txtPassword.Text = selectrow.Cells[5].Value.ToString();
+                    cbChucvu.SelectedItem = selectrow.Cells[6].Value.ToString();
+                    //foreach(DataGridViewRow row in griduser.SelectedRows)
+                    //{
+                    //    txtHoten.Text = row.Cells[1].Value.ToString();
+                    //    txtDiachi.Text = row.Cells[2].Value.ToString();
+                    //    txtSdt.Text = row.Cells[3].Value.ToString();
+                    //    txtUsername.Text = row.Cells[4].Value.ToString();
+                    //    txtPassword.Text = row.Cells[5].Value.ToString();
+                    //    cbChucvu.SelectedItem = row.Cells[6].Value.ToString();
+                    //}
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            int id;
-            id = Convert.ToInt32(txtId.Text);
-            var data = db.tbl_Employee.Where(p => p.Id == id).First();
-            db.tbl_Employee.Remove(data);
-            db.SaveChanges();
-            load();
+            try
+            {
+                int id;
+                id = Convert.ToInt32(txtId.Text);
+                var data = db.tbl_Employee.Where(p => p.Id == id).First();
+                db.tbl_Employee.Remove(data);
+                db.SaveChanges();
+                load();
+            }
+            catch
+            {
+                if (txtId.Text == "" || txtId.Text == "0")
+                {
+                    MessageBox.Show("Vui lòng chọn user", "Cảnh báo!!!");
+                }
+               else MessageBox.Show("Lỗi","Cảnh báo!!!");
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)

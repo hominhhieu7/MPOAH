@@ -56,5 +56,11 @@ namespace MHM
                 Activechildform("form_Nhapthuoc");
             }
         }
+
+        private void btnDoimk_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            form_doimk doimk = new form_doimk();
+            doimk.Show();
+        }
     }
 }

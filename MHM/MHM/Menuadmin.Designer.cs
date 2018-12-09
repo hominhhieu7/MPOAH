@@ -37,6 +37,7 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.barBtnDMK = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -47,12 +48,14 @@
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
             this.btnUser,
-            this.barBtntonthuoc});
+            this.barBtntonthuoc,
+            this.barBtnDMK});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 3;
+            this.ribbon.MaxItemId = 4;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
+            this.ribbon.QuickToolbarItemLinks.Add(this.barBtnDMK);
             this.ribbon.Size = new System.Drawing.Size(763, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
@@ -99,6 +102,14 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
+            // barBtnDMK
+            // 
+            this.barBtnDMK.Caption = "Đổi mật khẩu";
+            this.barBtnDMK.Id = 3;
+            this.barBtnDMK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barBtnDMK.Name = "barBtnDMK";
+            this.barBtnDMK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDMK_ItemClick);
+            // 
             // Menuadmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -131,5 +142,6 @@
         private DevExpress.XtraBars.BarButtonItem btnUser;
         private DevExpress.XtraBars.BarButtonItem barBtntonthuoc;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
+        private DevExpress.XtraBars.BarButtonItem barBtnDMK;
     }
 }

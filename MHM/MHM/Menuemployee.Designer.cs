@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menuemployee));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNhapthuoc = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDoimk = new DevExpress.XtraBars.BarButtonItem();
+            this.barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.btnDoimk = new DevExpress.XtraBars.BarButtonItem();
-            this.barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,20 @@
             this.btnNhapthuoc.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnNhapthuoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapthuoc_ItemClick);
             // 
+            // btnDoimk
+            // 
+            this.btnDoimk.Caption = "Đổi mật khẩu";
+            this.btnDoimk.Id = 2;
+            this.btnDoimk.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDoimk.ImageOptions.Image")));
+            this.btnDoimk.Name = "btnDoimk";
+            this.btnDoimk.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDoimk_ItemClick);
+            // 
+            // barMdiChildrenListItem1
+            // 
+            this.barMdiChildrenListItem1.Caption = "barMdiChildrenListItem1";
+            this.barMdiChildrenListItem1.Id = 3;
+            this.barMdiChildrenListItem1.Name = "barMdiChildrenListItem1";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -92,20 +106,6 @@
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
-            // btnDoimk
-            // 
-            this.btnDoimk.Caption = "Đổi mật khẩu";
-            this.btnDoimk.Id = 2;
-            this.btnDoimk.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDoimk.ImageOptions.Image")));
-            this.btnDoimk.Name = "btnDoimk";
-            this.btnDoimk.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
-            // barMdiChildrenListItem1
-            // 
-            this.barMdiChildrenListItem1.Caption = "barMdiChildrenListItem1";
-            this.barMdiChildrenListItem1.Id = 3;
-            this.barMdiChildrenListItem1.Name = "barMdiChildrenListItem1";
             // 
             // Menuemployee
             // 

@@ -13,6 +13,7 @@ namespace MHM
 {
     public partial class Menuadmin : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        int check = 0;
         public Menuadmin()
         {
             InitializeComponent();
@@ -64,6 +65,16 @@ namespace MHM
         private void barBtntonthuoc_ItemClick(object sender, ItemClickEventArgs e)
         {
 
+        }
+
+        private void barBtnDMK_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if(check == 0)
+            {
+                form_doimk doimk = new form_doimk();
+                doimk.Show();
+                check++;
+            }
         }
     }
 }
