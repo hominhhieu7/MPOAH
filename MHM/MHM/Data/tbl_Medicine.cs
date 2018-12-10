@@ -17,7 +17,8 @@ namespace MHM.Data
         public int Id { get; set; }
         public string Mathuoc { get; set; }
         public string Tenthuoc { get; set; }
-        public Nullable<double> Soluong { get; set; }
+        public string Danhmuc { get; set; }
+        public double Soluong { get; set; }
         public Nullable<System.DateTime> Ngaynhap { get; set; }
         public Nullable<decimal> Gianhap { get; set; }
         public Nullable<decimal> Giaban { get; set; }

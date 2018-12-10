@@ -51,8 +51,6 @@ namespace MHM
                     this.Close();
                 }
             }
-            
-            
         }
     }
 }

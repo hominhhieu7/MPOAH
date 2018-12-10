@@ -27,6 +27,8 @@ namespace MHM.Data
     
         public virtual DbSet<tbl_Customer> tbl_Customer { get; set; }
         public virtual DbSet<tbl_Employee> tbl_Employee { get; set; }
+        public virtual DbSet<tbl_ListMedicine> tbl_ListMedicine { get; set; }
         public virtual DbSet<tbl_Medicine> tbl_Medicine { get; set; }
+        public virtual DbSet<tbl_Thuoc> tbl_Thuoc { get; set; }
     }
 }

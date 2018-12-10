@@ -34,6 +34,12 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cbDanhmuc = new System.Windows.Forms.ComboBox();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.gridData = new System.Windows.Forms.DataGridView();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.txtSoluong = new DevExpress.XtraEditors.TextEdit();
+            this.txtId = new DevExpress.XtraEditors.TextEdit();
             this.txtTennv = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
@@ -43,23 +49,17 @@
             this.txtGiamua = new DevExpress.XtraEditors.TextEdit();
             this.txtTenthuoc = new DevExpress.XtraEditors.TextEdit();
             this.txtMathuoc = new DevExpress.XtraEditors.TextEdit();
-            this.gridData = new System.Windows.Forms.DataGridView();
-            this.txtId = new DevExpress.XtraEditors.TextEdit();
-            this.txtSoluong = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.cbDanhmuc = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cbTenthuoc = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoluong.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTennv.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaban.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiamua.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenthuoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMathuoc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoluong.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbDanhmuc.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -96,6 +96,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.cbTenthuoc);
             this.groupControl1.Controls.Add(this.cbDanhmuc);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.gridData);
@@ -123,10 +124,62 @@
             this.groupControl1.Text = "Thông tin thuốc";
             this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
             // 
+            // cbDanhmuc
+            // 
+            this.cbDanhmuc.FormattingEnabled = true;
+            this.cbDanhmuc.Location = new System.Drawing.Point(138, 127);
+            this.cbDanhmuc.Name = "cbDanhmuc";
+            this.cbDanhmuc.Size = new System.Drawing.Size(143, 21);
+            this.cbDanhmuc.TabIndex = 26;
+            this.cbDanhmuc.SelectedIndexChanged += new System.EventHandler(this.cbDanhmuc_SelectedIndexChanged);
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(45, 130);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(81, 13);
+            this.labelControl7.TabIndex = 25;
+            this.labelControl7.Text = "Danh mục thuốc:";
+            // 
+            // gridData
+            // 
+            this.gridData.AllowUserToAddRows = false;
+            this.gridData.AllowUserToDeleteRows = false;
+            this.gridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gridData.Location = new System.Drawing.Point(2, 204);
+            this.gridData.Name = "gridData";
+            this.gridData.ReadOnly = true;
+            this.gridData.Size = new System.Drawing.Size(753, 259);
+            this.gridData.TabIndex = 6;
+            this.gridData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridData_CellClick);
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(356, 33);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(46, 13);
+            this.labelControl6.TabIndex = 24;
+            this.labelControl6.Text = "Số lượng:";
+            // 
+            // txtSoluong
+            // 
+            this.txtSoluong.Location = new System.Drawing.Point(462, 30);
+            this.txtSoluong.Name = "txtSoluong";
+            this.txtSoluong.Size = new System.Drawing.Size(143, 20);
+            this.txtSoluong.TabIndex = 23;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(724, 227);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(21, 20);
+            this.txtId.TabIndex = 22;
+            // 
             // txtTennv
             // 
             this.txtTennv.Enabled = false;
-            this.txtTennv.Location = new System.Drawing.Point(439, 63);
+            this.txtTennv.Location = new System.Drawing.Point(462, 63);
             this.txtTennv.Name = "txtTennv";
             this.txtTennv.Size = new System.Drawing.Size(143, 20);
             this.txtTennv.TabIndex = 21;
@@ -170,7 +223,7 @@
             // 
             // txtGiaban
             // 
-            this.txtGiaban.Location = new System.Drawing.Point(439, 97);
+            this.txtGiaban.Location = new System.Drawing.Point(462, 97);
             this.txtGiaban.Name = "txtGiaban";
             this.txtGiaban.Size = new System.Drawing.Size(143, 20);
             this.txtGiaban.TabIndex = 9;
@@ -196,58 +249,14 @@
             this.txtMathuoc.Size = new System.Drawing.Size(143, 20);
             this.txtMathuoc.TabIndex = 5;
             // 
-            // gridData
+            // cbTenthuoc
             // 
-            this.gridData.AllowUserToAddRows = false;
-            this.gridData.AllowUserToDeleteRows = false;
-            this.gridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridData.Location = new System.Drawing.Point(2, 204);
-            this.gridData.Name = "gridData";
-            this.gridData.ReadOnly = true;
-            this.gridData.Size = new System.Drawing.Size(753, 259);
-            this.gridData.TabIndex = 6;
-            this.gridData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridData_CellClick);
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(724, 227);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(21, 20);
-            this.txtId.TabIndex = 22;
-            // 
-            // txtSoluong
-            // 
-            this.txtSoluong.Location = new System.Drawing.Point(439, 30);
-            this.txtSoluong.Name = "txtSoluong";
-            this.txtSoluong.Size = new System.Drawing.Size(143, 20);
-            this.txtSoluong.TabIndex = 23;
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(356, 33);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(46, 13);
-            this.labelControl6.TabIndex = 24;
-            this.labelControl6.Text = "Số lượng:";
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Location = new System.Drawing.Point(45, 130);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(81, 13);
-            this.labelControl7.TabIndex = 25;
-            this.labelControl7.Text = "Danh mục thuốc:";
-            // 
-            // cbDanhmuc
-            // 
-            this.cbDanhmuc.Location = new System.Drawing.Point(138, 127);
-            this.cbDanhmuc.Name = "cbDanhmuc";
-            this.cbDanhmuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbDanhmuc.Properties.DropDownRows = 10;
-            this.cbDanhmuc.Size = new System.Drawing.Size(143, 20);
-            this.cbDanhmuc.TabIndex = 26;
+            this.cbTenthuoc.FormattingEnabled = true;
+            this.cbTenthuoc.Location = new System.Drawing.Point(138, 30);
+            this.cbTenthuoc.Name = "cbTenthuoc";
+            this.cbTenthuoc.Size = new System.Drawing.Size(143, 21);
+            this.cbTenthuoc.TabIndex = 27;
+            this.cbTenthuoc.SelectedIndexChanged += new System.EventHandler(this.cbTenthuoc_SelectedIndexChanged);
             // 
             // form_Nhapthuoc
             // 
@@ -263,15 +272,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoluong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTennv.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaban.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiamua.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenthuoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMathuoc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtId.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoluong.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbDanhmuc.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -296,7 +304,8 @@
         private DevExpress.XtraEditors.TextEdit txtId;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit txtSoluong;
-        private DevExpress.XtraEditors.ComboBoxEdit cbDanhmuc;
         private DevExpress.XtraEditors.LabelControl labelControl7;
+        private System.Windows.Forms.ComboBox cbDanhmuc;
+        private System.Windows.Forms.ComboBox cbTenthuoc;
     }
 }

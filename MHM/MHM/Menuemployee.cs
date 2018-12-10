@@ -62,5 +62,19 @@ namespace MHM
             form_doimk doimk = new form_doimk();
             doimk.Show();
         }
+
+        private void btnDMThuoc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!Checkform("form_DMThuoc"))
+            {
+                form_DMThuoc nhap = new form_DMThuoc();
+                nhap.MdiParent = this;
+                nhap.Show();
+            }
+            else
+            {
+                Activechildform("form_DMThuoc");
+            }
+        }
     }
 }

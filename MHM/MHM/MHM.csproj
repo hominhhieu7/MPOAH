@@ -90,8 +90,32 @@
     <Compile Include="Data\tbl_Employee.cs">
       <DependentUpon>Data.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\tbl_ListMedicine.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\tbl_Medicine.cs">
       <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\tbl_Thuoc.cs">
+      <DependentUpon>Data.tt</DependentUpon>
+    </Compile>
+    <Compile Include="form_Banthuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_Banthuoc.Designer.cs">
+      <DependentUpon>form_Banthuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_DMKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_DMKH.Designer.cs">
+      <DependentUpon>form_DMKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_DMThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_DMThuoc.Designer.cs">
+      <DependentUpon>form_DMThuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="form_doimk.cs">
       <SubType>Form</SubType>
@@ -135,6 +159,9 @@
     <EmbeddedResource Include="CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_DMThuoc.resx">
+      <DependentUpon>form_DMThuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_doimk.resx">
       <DependentUpon>form_doimk.cs</DependentUpon>

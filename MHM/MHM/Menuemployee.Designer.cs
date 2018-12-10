@@ -38,6 +38,7 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.btnDMThuoc = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -49,9 +50,10 @@
             this.ribbon.ExpandCollapseItem,
             this.btnNhapthuoc,
             this.btnDoimk,
-            this.barMdiChildrenListItem1});
+            this.barMdiChildrenListItem1,
+            this.btnDMThuoc});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 4;
+            this.ribbon.MaxItemId = 5;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -93,6 +95,7 @@
             // 
             this.ribbonPageGroup1.AllowTextClipping = false;
             this.ribbonPageGroup1.ItemLinks.Add(this.btnNhapthuoc);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnDMThuoc);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Quản lý nhập thuốc";
             // 
@@ -106,6 +109,15 @@
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
+            // 
+            // btnDMThuoc
+            // 
+            this.btnDMThuoc.Caption = "Danh mục thuốc";
+            this.btnDMThuoc.Id = 4;
+            this.btnDMThuoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnDMThuoc.Name = "btnDMThuoc";
+            this.btnDMThuoc.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnDMThuoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDMThuoc_ItemClick);
             // 
             // Menuemployee
             // 
@@ -138,5 +150,6 @@
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.XtraBars.BarButtonItem btnDoimk;
         private DevExpress.XtraBars.BarMdiChildrenListItem barMdiChildrenListItem1;
+        private DevExpress.XtraBars.BarButtonItem btnDMThuoc;
     }
 }
