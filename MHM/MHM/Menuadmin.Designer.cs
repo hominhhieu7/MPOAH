@@ -33,11 +33,11 @@
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnUser = new DevExpress.XtraBars.BarButtonItem();
             this.barBtntonthuoc = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDMK = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.barBtnDMK = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +58,7 @@
             this.ribbon.QuickToolbarItemLinks.Add(this.barBtnDMK);
             this.ribbon.Size = new System.Drawing.Size(763, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.Click += new System.EventHandler(this.ribbon_Click);
             // 
             // btnUser
             // 
@@ -76,6 +77,14 @@
             this.barBtntonthuoc.Name = "barBtntonthuoc";
             this.barBtntonthuoc.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barBtntonthuoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtntonthuoc_ItemClick);
+            // 
+            // barBtnDMK
+            // 
+            this.barBtnDMK.Caption = "Đổi mật khẩu";
+            this.barBtnDMK.Id = 3;
+            this.barBtnDMK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnDMK.ImageOptions.Image")));
+            this.barBtnDMK.Name = "barBtnDMK";
+            this.barBtnDMK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDMK_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -101,14 +110,6 @@
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
-            // barBtnDMK
-            // 
-            this.barBtnDMK.Caption = "Đổi mật khẩu";
-            this.barBtnDMK.Id = 3;
-            this.barBtnDMK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.barBtnDMK.Name = "barBtnDMK";
-            this.barBtnDMK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDMK_ItemClick);
             // 
             // Menuadmin
             // 

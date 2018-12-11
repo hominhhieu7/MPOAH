@@ -36,6 +36,7 @@ namespace MHM
             txtId.Text = "0";
             var data = db.tbl_Medicine.ToList();
             cbDanhmuc.SelectedIndex = 0;
+            cbTenthuoc.SelectedIndex = 0;
             gridData.DataSource = data;
             gridData.Columns[1].HeaderText = "Mã thuốc";
             gridData.Columns[2].HeaderText = "Tên thuốc";
@@ -51,7 +52,7 @@ namespace MHM
             gridData.Columns[4].Width = 70;
             gridData.Columns[5].Width = 110;
             txtTennv.Text = Infor.Tennv;
-            
+
         }
 
         private void groupControl1_Paint(object sender, PaintEventArgs e)
@@ -100,7 +101,23 @@ namespace MHM
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                int id;
+                id = Convert.ToInt32(txtId.Text);
+                var data = db.tbl_Medicine.Where(p => p.Id == id).First();
+                db.tbl_Medicine.Remove(data);
+                db.SaveChanges();
+                load();
+            }
+            catch
+            {
+                if (txtId.Text == "" || txtId.Text == "0")
+                {
+                    MessageBox.Show("Vui lòng chọn user", "Cảnh báo!!!");
+                }
+                else MessageBox.Show("Lỗi", "Cảnh báo!!!");
+            }
         }
 
         private void gridData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -120,20 +137,38 @@ namespace MHM
 
         private void cbDanhmuc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var dt = cbDanhmuc.SelectedItem.ToString();
-            var thuoc = db.tbl_Thuoc.Where(p => p.Madanhmuc == dt).ToArray();
-            cbTenthuoc.Text = "";
-            cbTenthuoc.Items.Clear();
-            for (int i = 0; thuoc.Length > i; i++)
+            try
             {
-                cbTenthuoc.Items.Add(thuoc[i].Tenthuoc);
+                var dt = cbDanhmuc.SelectedItem.ToString();
+                var thuoc = db.tbl_Thuoc.Where(p => p.Madanhmuc == dt).ToArray();
+                cbTenthuoc.Text = "";
+                cbTenthuoc.Items.Clear();
+                for (int i = 0; thuoc.Length > i; i++)
+                {
+                    cbTenthuoc.Items.Add(thuoc[i].Tenthuoc);
+                }
+                cbTenthuoc.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void cbTenthuoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             var dt = cbTenthuoc.SelectedItem.ToString();
-            var thuoc = db.tbl_Thuoc.Where(p=>p.)
+            var thuoc = db.tbl_Thuoc.Where(p => p.Tenthuoc == dt).FirstOrDefault();
+            txtMathuoc.Text = thuoc.Mathuoc;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtGiaban.Text = "";
+            txtGiamua.Text = "";
+            txtId.Text = "0";
+            txtTenthuoc.Text = "";
+            txtSoluong.Text = "";
         }
     }
 }

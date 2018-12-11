@@ -34,6 +34,7 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cbTenthuoc = new System.Windows.Forms.ComboBox();
             this.cbDanhmuc = new System.Windows.Forms.ComboBox();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.gridData = new System.Windows.Forms.DataGridView();
@@ -49,7 +50,6 @@
             this.txtGiamua = new DevExpress.XtraEditors.TextEdit();
             this.txtTenthuoc = new DevExpress.XtraEditors.TextEdit();
             this.txtMathuoc = new DevExpress.XtraEditors.TextEdit();
-            this.cbTenthuoc = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridData)).BeginInit();
@@ -124,6 +124,15 @@
             this.groupControl1.Text = "Thông tin thuốc";
             this.groupControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl1_Paint);
             // 
+            // cbTenthuoc
+            // 
+            this.cbTenthuoc.FormattingEnabled = true;
+            this.cbTenthuoc.Location = new System.Drawing.Point(138, 63);
+            this.cbTenthuoc.Name = "cbTenthuoc";
+            this.cbTenthuoc.Size = new System.Drawing.Size(143, 21);
+            this.cbTenthuoc.TabIndex = 27;
+            this.cbTenthuoc.SelectedIndexChanged += new System.EventHandler(this.cbTenthuoc_SelectedIndexChanged);
+            // 
             // cbDanhmuc
             // 
             this.cbDanhmuc.FormattingEnabled = true;
@@ -147,10 +156,10 @@
             this.gridData.AllowUserToDeleteRows = false;
             this.gridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gridData.Location = new System.Drawing.Point(2, 204);
+            this.gridData.Location = new System.Drawing.Point(2, 206);
             this.gridData.Name = "gridData";
             this.gridData.ReadOnly = true;
-            this.gridData.Size = new System.Drawing.Size(753, 259);
+            this.gridData.Size = new System.Drawing.Size(753, 257);
             this.gridData.TabIndex = 6;
             this.gridData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridData_CellClick);
             // 
@@ -200,6 +209,7 @@
             this.btnClear.Size = new System.Drawing.Size(85, 37);
             this.btnClear.TabIndex = 19;
             this.btnClear.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDel
             // 
@@ -244,19 +254,11 @@
             // 
             // txtMathuoc
             // 
+            this.txtMathuoc.Enabled = false;
             this.txtMathuoc.Location = new System.Drawing.Point(138, 30);
             this.txtMathuoc.Name = "txtMathuoc";
             this.txtMathuoc.Size = new System.Drawing.Size(143, 20);
             this.txtMathuoc.TabIndex = 5;
-            // 
-            // cbTenthuoc
-            // 
-            this.cbTenthuoc.FormattingEnabled = true;
-            this.cbTenthuoc.Location = new System.Drawing.Point(138, 30);
-            this.cbTenthuoc.Name = "cbTenthuoc";
-            this.cbTenthuoc.Size = new System.Drawing.Size(143, 21);
-            this.cbTenthuoc.TabIndex = 27;
-            this.cbTenthuoc.SelectedIndexChanged += new System.EventHandler(this.cbTenthuoc_SelectedIndexChanged);
             // 
             // form_Nhapthuoc
             // 
