@@ -129,6 +129,12 @@
     <Compile Include="form_Nhapthuoc.Designer.cs">
       <DependentUpon>form_Nhapthuoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="form_Quanlythuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_Quanlythuoc.Designer.cs">
+      <DependentUpon>form_Quanlythuoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form_Nhapthuoc.resx">
       <DependentUpon>form_Nhapthuoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_Quanlythuoc.resx">
+      <DependentUpon>form_Quanlythuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

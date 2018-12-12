@@ -126,6 +126,7 @@
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "ADMIN";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menuadmin_FormClosing);
             this.Load += new System.EventHandler(this.Menuadmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();

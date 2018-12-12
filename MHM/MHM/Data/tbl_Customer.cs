@@ -19,5 +19,6 @@ namespace MHM.Data
         public string Diachi { get; set; }
         public Nullable<int> Tuoi { get; set; }
         public Nullable<long> Sodienthoai { get; set; }
+        public string Ghichu { get; set; }
     }
 }

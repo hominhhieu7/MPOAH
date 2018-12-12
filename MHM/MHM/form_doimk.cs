@@ -52,5 +52,10 @@ namespace MHM
                 }
             }
         }
+
+        private void form_doimk_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Infor.check = 0;
+        }
     }
 }

@@ -8,12 +8,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
-
+using MHM.Model;
 namespace MHM
 {
     public partial class Menuadmin : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        int check = 0;
         public Menuadmin()
         {
             InitializeComponent();
@@ -69,17 +68,22 @@ namespace MHM
 
         private void barBtnDMK_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if(check == 0)
+            if(Infor.check == 0)
             {
                 form_doimk doimk = new form_doimk();
                 doimk.Show();
-                check++;
+                Infor.check++;
             }
         }
 
         private void ribbon_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Menuadmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Infor.check = 0;
         }
     }
 }

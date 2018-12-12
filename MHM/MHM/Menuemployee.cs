@@ -8,12 +8,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
-
+using MHM.Model;
 namespace MHM
 {
     public partial class Menuemployee : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-
+        int check = 0;
         public Menuemployee()
         {
             InitializeComponent();
@@ -59,8 +59,12 @@ namespace MHM
 
         private void btnDoimk_ItemClick(object sender, ItemClickEventArgs e)
         {
-            form_doimk doimk = new form_doimk();
-            doimk.Show();
+            if(Infor.check == 0)
+            {
+                form_doimk doimk = new form_doimk();
+                doimk.Show();
+                Infor.check++;
+            }
         }
 
         private void btnDMThuoc_ItemClick(object sender, ItemClickEventArgs e)
@@ -74,6 +78,20 @@ namespace MHM
             else
             {
                 Activechildform("form_DMThuoc");
+            }
+        }
+
+        private void btnQLThuoc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!Checkform("form_Quanlythuoc"))
+            {
+                form_Quanlythuoc nhap = new form_Quanlythuoc();
+                nhap.MdiParent = this;
+                nhap.Show();
+            }
+            else
+            {
+                Activechildform("form_Quanlythuoc");
             }
         }
     }

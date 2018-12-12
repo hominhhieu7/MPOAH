@@ -34,11 +34,14 @@
             this.btnNhapthuoc = new DevExpress.XtraBars.BarButtonItem();
             this.btnDoimk = new DevExpress.XtraBars.BarButtonItem();
             this.barMdiChildrenListItem1 = new DevExpress.XtraBars.BarMdiChildrenListItem();
+            this.btnDMThuoc = new DevExpress.XtraBars.BarButtonItem();
+            this.btnQLThuoc = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.btnDMThuoc = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -51,12 +54,14 @@
             this.btnNhapthuoc,
             this.btnDoimk,
             this.barMdiChildrenListItem1,
-            this.btnDMThuoc});
+            this.btnDMThuoc,
+            this.btnQLThuoc});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 5;
+            this.ribbon.MaxItemId = 6;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
+            this.ribbonPage1,
+            this.ribbonPage2});
             this.ribbon.QuickToolbarItemLinks.Add(this.btnDoimk);
             this.ribbon.Size = new System.Drawing.Size(763, 143);
             this.ribbon.StatusBar = this.ribbonStatusBar;
@@ -84,20 +89,51 @@
             this.barMdiChildrenListItem1.Id = 3;
             this.barMdiChildrenListItem1.Name = "barMdiChildrenListItem1";
             // 
+            // btnDMThuoc
+            // 
+            this.btnDMThuoc.Caption = "Danh mục thuốc";
+            this.btnDMThuoc.Id = 4;
+            this.btnDMThuoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDMThuoc.ImageOptions.Image")));
+            this.btnDMThuoc.Name = "btnDMThuoc";
+            this.btnDMThuoc.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnDMThuoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDMThuoc_ItemClick);
+            // 
+            // btnQLThuoc
+            // 
+            this.btnQLThuoc.Caption = "Quản lý thuốc";
+            this.btnQLThuoc.Id = 5;
+            this.btnQLThuoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnQLThuoc.Name = "btnQLThuoc";
+            this.btnQLThuoc.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnQLThuoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQLThuoc_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1});
             this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "Nhập Thuốc";
+            this.ribbonPage1.Text = "Quản lý nhập thuốc";
             // 
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.AllowTextClipping = false;
             this.ribbonPageGroup1.ItemLinks.Add(this.btnNhapthuoc);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDMThuoc);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnQLThuoc);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Quản lý nhập thuốc";
+            // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup2});
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "Bán thuốc";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
             // ribbonStatusBar
             // 
@@ -109,15 +145,6 @@
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
-            // btnDMThuoc
-            // 
-            this.btnDMThuoc.Caption = "Danh mục thuốc";
-            this.btnDMThuoc.Id = 4;
-            this.btnDMThuoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnDMThuoc.Name = "btnDMThuoc";
-            this.btnDMThuoc.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnDMThuoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDMThuoc_ItemClick);
             // 
             // Menuemployee
             // 
@@ -151,5 +178,8 @@
         private DevExpress.XtraBars.BarButtonItem btnDoimk;
         private DevExpress.XtraBars.BarMdiChildrenListItem barMdiChildrenListItem1;
         private DevExpress.XtraBars.BarButtonItem btnDMThuoc;
+        private DevExpress.XtraBars.BarButtonItem btnQLThuoc;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
     }
 }

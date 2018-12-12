@@ -10,5 +10,6 @@ namespace MHM.Model
     {
         public static int Id;
         public static string Tennv;
+        public static int check;
     }
 }
