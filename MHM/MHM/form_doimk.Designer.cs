@@ -40,17 +40,20 @@
             this.btnHuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtMkcu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMkmoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtXnmk.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelControl1
             // 
             this.labelControl1.LineVisible = true;
-            this.labelControl1.Location = new System.Drawing.Point(85, 204);
+            this.labelControl1.Location = new System.Drawing.Point(26, 38);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(62, 13);
             this.labelControl1.TabIndex = 1;
@@ -58,7 +61,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(85, 249);
+            this.labelControl2.Location = new System.Drawing.Point(26, 83);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(67, 13);
             this.labelControl2.TabIndex = 2;
@@ -66,7 +69,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(85, 294);
+            this.labelControl3.Location = new System.Drawing.Point(26, 128);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(108, 13);
             this.labelControl3.TabIndex = 3;
@@ -74,7 +77,7 @@
             // 
             // txtMkcu
             // 
-            this.txtMkcu.Location = new System.Drawing.Point(218, 201);
+            this.txtMkcu.Location = new System.Drawing.Point(159, 35);
             this.txtMkcu.Name = "txtMkcu";
             this.txtMkcu.Properties.PasswordChar = '*';
             this.txtMkcu.Size = new System.Drawing.Size(134, 20);
@@ -82,7 +85,7 @@
             // 
             // txtMkmoi
             // 
-            this.txtMkmoi.Location = new System.Drawing.Point(218, 246);
+            this.txtMkmoi.Location = new System.Drawing.Point(159, 80);
             this.txtMkmoi.Name = "txtMkmoi";
             this.txtMkmoi.Properties.PasswordChar = '*';
             this.txtMkmoi.Size = new System.Drawing.Size(134, 20);
@@ -90,7 +93,7 @@
             // 
             // txtXnmk
             // 
-            this.txtXnmk.Location = new System.Drawing.Point(218, 291);
+            this.txtXnmk.Location = new System.Drawing.Point(159, 125);
             this.txtXnmk.Name = "txtXnmk";
             this.txtXnmk.Properties.PasswordChar = '*';
             this.txtXnmk.Size = new System.Drawing.Size(133, 20);
@@ -125,19 +128,28 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.txtXnmk);
+            this.groupControl1.Controls.Add(this.txtMkmoi);
+            this.groupControl1.Controls.Add(this.txtMkcu);
+            this.groupControl1.Controls.Add(this.labelControl3);
+            this.groupControl1.Controls.Add(this.labelControl2);
+            this.groupControl1.Controls.Add(this.labelControl1);
+            this.groupControl1.Location = new System.Drawing.Point(66, 173);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(321, 169);
+            this.groupControl1.TabIndex = 21;
+            this.groupControl1.Text = "Đổi mật khẩu";
+            // 
             // form_doimk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 444);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtXnmk);
-            this.Controls.Add(this.txtMkmoi);
-            this.Controls.Add(this.txtMkcu);
-            this.Controls.Add(this.labelControl3);
-            this.Controls.Add(this.labelControl2);
-            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.pictureBox1);
             this.MaximumSize = new System.Drawing.Size(465, 483);
             this.MinimumSize = new System.Drawing.Size(465, 483);
@@ -149,8 +161,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtXnmk.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -166,5 +180,6 @@
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
     }
 }

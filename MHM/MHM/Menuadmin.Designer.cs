@@ -38,6 +38,8 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDangxuat = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -49,9 +51,11 @@
             this.ribbon.ExpandCollapseItem,
             this.btnUser,
             this.barBtntonthuoc,
-            this.barBtnDMK});
+            this.barBtnDMK,
+            this.barButtonItem1,
+            this.btnDangxuat});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 4;
+            this.ribbon.MaxItemId = 6;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -97,6 +101,7 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnUser);
             this.ribbonPageGroup1.ItemLinks.Add(this.barBtntonthuoc);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnDangxuat);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Quản lý";
             // 
@@ -110,6 +115,21 @@
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 4;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // btnDangxuat
+            // 
+            this.btnDangxuat.Caption = "Đăng xuất";
+            this.btnDangxuat.Id = 5;
+            this.btnDangxuat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.btnDangxuat.Name = "btnDangxuat";
+            this.btnDangxuat.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnDangxuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDangxuat_ItemClick);
             // 
             // Menuadmin
             // 
@@ -145,5 +165,7 @@
         private DevExpress.XtraBars.BarButtonItem barBtntonthuoc;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.XtraBars.BarButtonItem barBtnDMK;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnDangxuat;
     }
 }

@@ -63,7 +63,16 @@ namespace MHM
 
         private void barBtntonthuoc_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            if (!Checkform("Baocaotonthuoc"))
+            {
+                Baocaotonthuoc quanlyusers = new Baocaotonthuoc();
+                quanlyusers.MdiParent = this;
+                quanlyusers.Show();
+            }
+            else
+            {
+                Activechildform("Baocaotonthuoc");
+            }
         }
 
         private void barBtnDMK_ItemClick(object sender, ItemClickEventArgs e)
@@ -84,6 +93,24 @@ namespace MHM
         private void Menuadmin_FormClosing(object sender, FormClosingEventArgs e)
         {
             Infor.check = 0;
+        }
+
+        private void btnDangxuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Bạn muốn đăng xuất ???", "Đăng xuất", MessageBoxButtons.YesNo);
+            if(dialog == DialogResult.Yes)
+            {
+                this.Close();
+                Login login = new Login();
+                login.Show();
+            }
+            else if(dialog == DialogResult.No){
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Lỗi!!!", "Thông báo");
+            }
         }
     }
 }

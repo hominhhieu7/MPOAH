@@ -60,7 +60,6 @@ namespace MHM
                 db.SaveChanges();
                 load();
             }
-            load();
         }
 
         private void btnDel_Click(object sender, EventArgs e)

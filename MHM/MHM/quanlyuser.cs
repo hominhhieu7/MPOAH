@@ -26,6 +26,7 @@ namespace MHM
             txtId.Visible = false;
             cbChucvu.Items.Add("GD");
             cbChucvu.Items.Add("NV");
+            cbChucvu.SelectedIndex = 1;
             load();
         }
         private void load()

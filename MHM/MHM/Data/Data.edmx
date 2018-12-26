@@ -12,6 +12,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Hovaten" Type="nvarchar" MaxLength="50" />
           <Property Name="Diachi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gioitinh" Type="nvarchar" MaxLength="10" />
           <Property Name="Tuoi" Type="int" />
           <Property Name="Sodienthoai" Type="bigint" />
           <Property Name="Ghichu" Type="nvarchar(max)" />
@@ -50,6 +51,30 @@
           <Property Name="Giaban" Type="money" />
           <Property Name="Addwho" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="tbl_Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderCode" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalProduct" Type="int" />
+          <Property Name="TotalMoney" Type="float" />
+        </EntityType>
+        <EntityType Name="tbl_OrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="nchar" MaxLength="10" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="PriceProduct" Type="float" />
+          <Property Name="TotalMoney" Type="float" />
+        </EntityType>
         <EntityType Name="tbl_Thuoc">
           <Key>
             <PropertyRef Name="Id" />
@@ -59,11 +84,34 @@
           <Property Name="Tenthuoc" Type="nvarchar" MaxLength="50" />
           <Property Name="Mathuoc" Type="char" MaxLength="5" />
         </EntityType>
+        <Function Name="sp_Order_Save" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="CustomerId" Type="int" Mode="In" />
+          <Parameter Name="CustomerName" Type="nvarchar" Mode="In" />
+          <Parameter Name="OrderCode" Type="varchar" Mode="In" />
+          <Parameter Name="CreateBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="TotalProduct" Type="int" Mode="In" />
+          <Parameter Name="TotalMoney" Type="float" Mode="In" />
+        </Function>
+        <Function Name="sp_OrderDetail_Save" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderId" Type="int" Mode="In" />
+          <Parameter Name="ProductId" Type="int" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="PriceProduct" Type="float" Mode="In" />
+          <Parameter Name="TotalMoney" Type="float" Mode="In" />
+        </Function>
+        <Function Name="sp_Product_UpdateOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_ReportMedicine_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="QLHTModelStoreContainer">
           <EntitySet Name="tbl_Customer" EntityType="Self.tbl_Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ListMedicine" EntityType="Self.tbl_ListMedicine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Medicine" EntityType="Self.tbl_Medicine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Order" EntityType="Self.tbl_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_OrderDetail" EntityType="Self.tbl_OrderDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_Thuoc" EntityType="Self.tbl_Thuoc" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -71,23 +119,35 @@
     <edmx:ConceptualModels>
       <Schema Namespace="QLHTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="QLHTEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tbl_Customer" EntityType="QLHTModel.tbl_Customer" />
           <EntitySet Name="tbl_Employee" EntityType="QLHTModel.tbl_Employee" />
           <EntitySet Name="tbl_ListMedicine" EntityType="QLHTModel.tbl_ListMedicine" />
           <EntitySet Name="tbl_Medicine" EntityType="QLHTModel.tbl_Medicine" />
           <EntitySet Name="tbl_Thuoc" EntityType="QLHTModel.tbl_Thuoc" />
+          <EntitySet Name="tbl_Customer" EntityType="QLHTModel.tbl_Customer" />
+          <EntitySet Name="tbl_OrderDetail" EntityType="QLHTModel.tbl_OrderDetail" />
+          <EntitySet Name="tbl_Order" EntityType="QLHTModel.tbl_Order" />
+          <FunctionImport Name="sp_Order_Save" ReturnType="Collection(Int32)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerName" Mode="In" Type="String" />
+            <Parameter Name="OrderCode" Mode="In" Type="String" />
+            <Parameter Name="CreateBy" Mode="In" Type="String" />
+            <Parameter Name="TotalProduct" Mode="In" Type="Int32" />
+            <Parameter Name="TotalMoney" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="sp_OrderDetail_Save" ReturnType="Collection(String)">
+            <Parameter Name="OrderId" Mode="In" Type="Int32" />
+            <Parameter Name="ProductId" Mode="In" Type="Int32" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="PriceProduct" Mode="In" Type="Double" />
+            <Parameter Name="TotalMoney" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Product_UpdateOrder" ReturnType="Collection(String)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ReportMedicine_List" ReturnType="Collection(QLHTModel.sp_ReportMedicine_List_Result)" />
         </EntityContainer>
-        <EntityType Name="tbl_Customer">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Hovaten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Tuoi" Type="Int32" />
-          <Property Name="Sodienthoai" Type="Int64" />
-          <Property Name="Ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="tbl_Employee">
           <Key>
             <PropertyRef Name="Id" />
@@ -131,24 +191,53 @@
           <Property Name="Tenthuoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Mathuoc" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
         </EntityType>
+        <EntityType Name="tbl_Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hovaten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gioitinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Tuoi" Type="Int32" />
+          <Property Name="Sodienthoai" Type="Int64" />
+          <Property Name="Ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_OrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="PriceProduct" Type="Double" />
+          <Property Name="TotalMoney" Type="Double" />
+        </EntityType>
+        <EntityType Name="tbl_Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalProduct" Type="Int32" />
+          <Property Name="TotalMoney" Type="Double" />
+        </EntityType>
+        <ComplexType Name="sp_ReportMedicine_List_Result">
+          <Property Type="String" Name="Mathuoc" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Tenthuoc" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="tongsothuoc" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QLHTModelStoreContainer" CdmEntityContainer="QLHTEntities">
-          <EntitySetMapping Name="tbl_Customer">
-            <EntityTypeMapping TypeName="QLHTModel.tbl_Customer">
-              <MappingFragment StoreEntitySet="tbl_Customer">
-                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
-                <ScalarProperty Name="Sodienthoai" ColumnName="Sodienthoai" />
-                <ScalarProperty Name="Tuoi" ColumnName="Tuoi" />
-                <ScalarProperty Name="Diachi" ColumnName="Diachi" />
-                <ScalarProperty Name="Hovaten" ColumnName="Hovaten" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tbl_Employee">
             <EntityTypeMapping TypeName="QLHTModel.tbl_Employee">
               <MappingFragment StoreEntitySet="tbl_Employee">
@@ -196,6 +285,57 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Customer">
+            <EntityTypeMapping TypeName="QLHTModel.tbl_Customer">
+              <MappingFragment StoreEntitySet="tbl_Customer">
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+                <ScalarProperty Name="Sodienthoai" ColumnName="Sodienthoai" />
+                <ScalarProperty Name="Tuoi" ColumnName="Tuoi" />
+                <ScalarProperty Name="Gioitinh" ColumnName="Gioitinh" />
+                <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+                <ScalarProperty Name="Hovaten" ColumnName="Hovaten" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_OrderDetail">
+            <EntityTypeMapping TypeName="QLHTModel.tbl_OrderDetail">
+              <MappingFragment StoreEntitySet="tbl_OrderDetail">
+                <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+                <ScalarProperty Name="PriceProduct" ColumnName="PriceProduct" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Order">
+            <EntityTypeMapping TypeName="QLHTModel.tbl_Order">
+              <MappingFragment StoreEntitySet="tbl_Order">
+                <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+                <ScalarProperty Name="TotalProduct" ColumnName="TotalProduct" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_Order_Save" FunctionName="QLHTModel.Store.sp_Order_Save" />
+          <FunctionImportMapping FunctionImportName="sp_OrderDetail_Save" FunctionName="QLHTModel.Store.sp_OrderDetail_Save" />
+          <FunctionImportMapping FunctionImportName="sp_Product_UpdateOrder" FunctionName="QLHTModel.Store.sp_Product_UpdateOrder" />
+          <FunctionImportMapping FunctionImportName="sp_ReportMedicine_List" FunctionName="QLHTModel.Store.sp_ReportMedicine_List">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QLHTModel.sp_ReportMedicine_List_Result">
+                <ScalarProperty Name="Mathuoc" ColumnName="Mathuoc" />
+                <ScalarProperty Name="Tenthuoc" ColumnName="Tenthuoc" />
+                <ScalarProperty Name="tongsothuoc" ColumnName="tongsothuoc" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

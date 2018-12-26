@@ -51,6 +51,9 @@ namespace MHM
             add.Madanhmuc = cbMaDM.SelectedItem.ToString();
             add.Mathuoc = txtMathuoc.Text;
             add.Tenthuoc = txtTenthuoc.Text;
+            var dt = db.tbl_Thuoc.Where(p => p.Mathuoc == txtMathuoc.Text).FirstOrDefault();
+            if (dt.Mathuoc != "")
+                MessageBox.Show("Ma thuoc ton tai", "Canh bao");
             if(id == 0)
             {
                 db.tbl_Thuoc.Add(add);

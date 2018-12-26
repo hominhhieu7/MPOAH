@@ -12,6 +12,8 @@ namespace MHM.Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class QLHTEntities : DbContext
     {
@@ -25,10 +27,88 @@ namespace MHM.Data
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<tbl_Customer> tbl_Customer { get; set; }
         public virtual DbSet<tbl_Employee> tbl_Employee { get; set; }
         public virtual DbSet<tbl_ListMedicine> tbl_ListMedicine { get; set; }
         public virtual DbSet<tbl_Medicine> tbl_Medicine { get; set; }
         public virtual DbSet<tbl_Thuoc> tbl_Thuoc { get; set; }
+        public virtual DbSet<tbl_Customer> tbl_Customer { get; set; }
+        public virtual DbSet<tbl_OrderDetail> tbl_OrderDetail { get; set; }
+        public virtual DbSet<tbl_Order> tbl_Order { get; set; }
+    
+        public virtual ObjectResult<Nullable<int>> sp_Order_Save(Nullable<int> id, Nullable<int> customerId, string customerName, string orderCode, string createBy, Nullable<int> totalProduct, Nullable<double> totalMoney)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var customerIdParameter = customerId.HasValue ?
+                new ObjectParameter("CustomerId", customerId) :
+                new ObjectParameter("CustomerId", typeof(int));
+    
+            var customerNameParameter = customerName != null ?
+                new ObjectParameter("CustomerName", customerName) :
+                new ObjectParameter("CustomerName", typeof(string));
+    
+            var orderCodeParameter = orderCode != null ?
+                new ObjectParameter("OrderCode", orderCode) :
+                new ObjectParameter("OrderCode", typeof(string));
+    
+            var createByParameter = createBy != null ?
+                new ObjectParameter("CreateBy", createBy) :
+                new ObjectParameter("CreateBy", typeof(string));
+    
+            var totalProductParameter = totalProduct.HasValue ?
+                new ObjectParameter("TotalProduct", totalProduct) :
+                new ObjectParameter("TotalProduct", typeof(int));
+    
+            var totalMoneyParameter = totalMoney.HasValue ?
+                new ObjectParameter("TotalMoney", totalMoney) :
+                new ObjectParameter("TotalMoney", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("sp_Order_Save", idParameter, customerIdParameter, customerNameParameter, orderCodeParameter, createByParameter, totalProductParameter, totalMoneyParameter);
+        }
+    
+        public virtual ObjectResult<string> sp_OrderDetail_Save(Nullable<int> orderId, Nullable<int> productId, Nullable<int> quantity, Nullable<double> priceProduct, Nullable<double> totalMoney)
+        {
+            var orderIdParameter = orderId.HasValue ?
+                new ObjectParameter("OrderId", orderId) :
+                new ObjectParameter("OrderId", typeof(int));
+    
+            var productIdParameter = productId.HasValue ?
+                new ObjectParameter("ProductId", productId) :
+                new ObjectParameter("ProductId", typeof(int));
+    
+            var quantityParameter = quantity.HasValue ?
+                new ObjectParameter("Quantity", quantity) :
+                new ObjectParameter("Quantity", typeof(int));
+    
+            var priceProductParameter = priceProduct.HasValue ?
+                new ObjectParameter("PriceProduct", priceProduct) :
+                new ObjectParameter("PriceProduct", typeof(double));
+    
+            var totalMoneyParameter = totalMoney.HasValue ?
+                new ObjectParameter("TotalMoney", totalMoney) :
+                new ObjectParameter("TotalMoney", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_OrderDetail_Save", orderIdParameter, productIdParameter, quantityParameter, priceProductParameter, totalMoneyParameter);
+        }
+    
+        public virtual ObjectResult<string> sp_Product_UpdateOrder(Nullable<int> id, Nullable<int> quantity)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(int));
+    
+            var quantityParameter = quantity.HasValue ?
+                new ObjectParameter("Quantity", quantity) :
+                new ObjectParameter("Quantity", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("sp_Product_UpdateOrder", idParameter, quantityParameter);
+        }
+    
+        public virtual ObjectResult<sp_ReportMedicine_List_Result> sp_ReportMedicine_List()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ReportMedicine_List_Result>("sp_ReportMedicine_List");
+        }
     }
 }

@@ -12,14 +12,15 @@ namespace MHM.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_Customer
+    public partial class tbl_Order
     {
         public int Id { get; set; }
-        public string Hovaten { get; set; }
-        public string Diachi { get; set; }
-        public string Gioitinh { get; set; }
-        public Nullable<int> Tuoi { get; set; }
-        public Nullable<long> Sodienthoai { get; set; }
-        public string Ghichu { get; set; }
+        public Nullable<int> CustomerId { get; set; }
+        public string CustomerName { get; set; }
+        public string OrderCode { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
+        public string CreateBy { get; set; }
+        public Nullable<int> TotalProduct { get; set; }
+        public Nullable<double> TotalMoney { get; set; }
     }
 }

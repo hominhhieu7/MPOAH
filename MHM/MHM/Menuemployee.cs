@@ -13,7 +13,6 @@ namespace MHM
 {
     public partial class Menuemployee : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        int check = 0;
         public Menuemployee()
         {
             InitializeComponent();
@@ -92,6 +91,58 @@ namespace MHM
             else
             {
                 Activechildform("form_Quanlythuoc");
+            }
+        }
+
+        private void btnDangxuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Bạn muốn đăng xuất ???", "Đăng xuất", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                this.Close();
+                Login login = new Login();
+                login.Show();
+            }
+            else if (dialog == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Lỗi!!!", "Thông báo");
+            }
+        }
+
+        private void Menuemployee_Load(object sender, EventArgs e)
+        {
+            lbTennv.Text = Infor.Tennv;
+        }
+
+        private void btnKhachhang_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!Checkform("form_DMKH"))
+            {
+                form_DMKH nhap = new form_DMKH();
+                nhap.MdiParent = this;
+                nhap.Show();
+            }
+            else
+            {
+                Activechildform("form_DMKH");
+            }
+        }
+
+        private void btnBanthuoc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!Checkform("form_Banthuoc"))
+            {
+                form_Banthuoc nhap = new form_Banthuoc();
+                nhap.MdiParent = this;
+                nhap.Show();
+            }
+            else
+            {
+                Activechildform("form_Banthuoc");
             }
         }
     }

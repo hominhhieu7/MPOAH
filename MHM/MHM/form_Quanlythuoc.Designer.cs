@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_Quanlythuoc));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.txtMathuoc = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbMaDM = new System.Windows.Forms.ComboBox();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnDel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -38,14 +41,11 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtId = new System.Windows.Forms.TextBox();
             this.dtGrid = new System.Windows.Forms.DataGridView();
-            this.cbMaDM = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtMathuoc = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMathuoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenthuoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMathuoc.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -64,6 +64,30 @@
             this.groupControl1.Size = new System.Drawing.Size(756, 232);
             this.groupControl1.TabIndex = 27;
             this.groupControl1.Text = "Thông tin thuốc";
+            // 
+            // txtMathuoc
+            // 
+            this.txtMathuoc.Location = new System.Drawing.Point(305, 127);
+            this.txtMathuoc.Name = "txtMathuoc";
+            this.txtMathuoc.Size = new System.Drawing.Size(141, 20);
+            this.txtMathuoc.TabIndex = 25;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(209, 130);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Mã thuốc";
+            // 
+            // cbMaDM
+            // 
+            this.cbMaDM.FormattingEnabled = true;
+            this.cbMaDM.Location = new System.Drawing.Point(305, 46);
+            this.cbMaDM.Name = "cbMaDM";
+            this.cbMaDM.Size = new System.Drawing.Size(141, 21);
+            this.cbMaDM.TabIndex = 23;
             // 
             // btnClear
             // 
@@ -136,30 +160,6 @@
             this.dtGrid.Size = new System.Drawing.Size(757, 233);
             this.dtGrid.TabIndex = 25;
             // 
-            // cbMaDM
-            // 
-            this.cbMaDM.FormattingEnabled = true;
-            this.cbMaDM.Location = new System.Drawing.Point(305, 46);
-            this.cbMaDM.Name = "cbMaDM";
-            this.cbMaDM.Size = new System.Drawing.Size(141, 21);
-            this.cbMaDM.TabIndex = 23;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(209, 130);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Mã thuốc";
-            // 
-            // txtMathuoc
-            // 
-            this.txtMathuoc.Location = new System.Drawing.Point(305, 127);
-            this.txtMathuoc.Name = "txtMathuoc";
-            this.txtMathuoc.Size = new System.Drawing.Size(141, 20);
-            this.txtMathuoc.TabIndex = 25;
-            // 
             // form_Quanlythuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,14 +171,14 @@
             this.MaximumSize = new System.Drawing.Size(773, 504);
             this.MinimumSize = new System.Drawing.Size(773, 504);
             this.Name = "form_Quanlythuoc";
-            this.Text = "form_Quanlythuoc";
+            this.Text = "Quản lý thuốc";
             this.Load += new System.EventHandler(this.form_Quanlythuoc_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMathuoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenthuoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMathuoc.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
