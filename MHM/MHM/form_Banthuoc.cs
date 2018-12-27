@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MHM.Data;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp;
 using MHM.Model;
 
 namespace MHM
@@ -182,6 +185,11 @@ namespace MHM
             {
                 MessageBox.Show(ex.Message);
             }
+            
+        }
+
+        private void btnPDF_Click(object sender, EventArgs e)
+        {
             
         }
     }
